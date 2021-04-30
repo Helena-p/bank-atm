@@ -11,6 +11,9 @@
         display: flex;
         align-items: center;
         background: linear-gradient(to top left, #26984a, #8ed596);
+        box-sizing: border-box;
+        display: grid;
+        place-items: center;
       }
       h1 {
         font-family: sans-serif;
@@ -21,10 +24,96 @@
         text-align: center;
         color: #ffffff;
       }
+      .atm__container {
+        width: 60vw;
+        min-height: 50vh;
+        background-color: #d3d3d3;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-gap: 8px;
+      }
+      h3 {
+        grid-column: 4 / span 4;
+        grid-row: 1 / 2;
+      }
+      form {
+        grid-column: 4 / span 6;
+        grid-row: 3 / 5;
+        align-items: center;
+      }
+      .account {
+        grid-column: 8 / 10;
+        grid-row: 6 / 7;
+        justify-self: center;
+        background-color: rgb(67, 67, 192);
+        color: #ffffff;
+      }
+      .balance {
+        grid-column: 4 / 6;
+        grid-row: 6 / 7;
+        background-color: rgb(67, 67, 192);
+        color: #ffffff;
+      }
+      .withdraw {
+        grid-column: 8 / 10;
+        grid-row: 5 / 6;
+        background-color: rgb(67, 67, 192);
+        color: #ffffff;
+      }
+      .deposit {
+        grid-column: 4 / 16;
+        grid-row: 5 / 6;
+        background-color: rgb(67, 67, 192);
+        color: #ffffff;
+      }
+      .exit {
+        grid-column: 10 / 13;
+        grid-row: 3 / 4;
+        background-color: rgb(243, 40, 40);
+        color: #ffffff;
+        justify-self: center;
+      }
+      .enter {
+        grid-column: 10 / 13;
+        grid-row: 4 / 5;
+        background-color: rgb(21, 119, 21);
+        color: #ffffff;
+        justify-self: center;
+      }
+      .textArea {
+        width: 100%;
+        min-height: 70%;
+      }
+      .account,
+      .balance,
+      .withdraw,
+      .deposit,
+      .exit,
+      .enter {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <h1>JavaScript Second Assignment - Bank Account</h1>
+    <div class="atm__container">
+      <h3 class="output"></h3>
+      <form action="" class="form">
+        <input type="text" class="textArea" />
+      </form>
+      <button class="account">Account Details</button>
+      <button class="balance">Balance</button>
+      <button class="withdraw">Withdrawal</button>
+      <button class="deposit">Deposit</button>
+      <button class="exit">Exit</button>
+      <button class="enter">Enter</button>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
