@@ -1,7 +1,25 @@
-// BANK ACCOUNT
+"use strict";
 
-// Start by creating the object and the properties. You can leave the functions empty for now if you want.
-// You'll find all the information about what properties the object should have in the readme file.
+const account = {
+  accountName: "john doe",
+  balance: 100,
+  getBalance: function () {},
+  deposit: function () {},
+  withdrawal: function () {},
+  getAccountName: function () {},
+  accountError: function () {},
+  exitAccount: function () {},
+};
+
+function atm() {
+  let choice = parseInt(
+    prompt("Please select a transaction: BALANCE, DEPOSIT or WITHDRAWAL")
+  );
+  //prompt user for choice.
+
+  // you can use the variable choice for your switch or if/else statement
+  // so choice will hold the value of the user input.
+}
 
 // In the deposit and withdrawal function use this code to show the prompt
 parseFloat(prompt("Put some proper message here"));
@@ -22,7 +40,7 @@ isNaN(variableName);
 alert("your code here and maybe properties");
 // of course you need to put a proper message and you might need to display some of the properties.
 
-// STARER FUNCTION
+// STARTER FUNCTION
 function atm() {
   let choice = parseInt(prompt("Display menu choices here"));
   //prompt user for choice.
