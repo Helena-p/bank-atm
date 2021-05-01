@@ -25,66 +25,50 @@
         color: #ffffff;
       }
       .atm__container {
-        width: 60vw;
+        width: 100%;
+        max-width: 600px;
         min-height: 50vh;
         background-color: #d3d3d3;
         border-radius: 10px;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        grid-gap: 8px;
-      }
-      h3 {
-        grid-column: 4 / span 4;
-        grid-row: 1 / 2;
-      }
-      form {
-        grid-column: 4 / span 6;
-        grid-row: 3 / 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
       }
-      .account {
-        grid-column: 8 / 10;
-        grid-row: 6 / 7;
+      .output {
         justify-self: center;
-        background-color: rgb(67, 67, 192);
-        color: #ffffff;
+        font-family: sans-serif;
+        font-weight: normal;
       }
-      .balance {
-        grid-column: 4 / 6;
-        grid-row: 6 / 7;
-        background-color: rgb(67, 67, 192);
-        color: #ffffff;
+      form {
+        width: 60%;
+        min-height: 50px;
       }
-      .withdraw {
-        grid-column: 8 / 10;
-        grid-row: 5 / 6;
-        background-color: rgb(67, 67, 192);
-        color: #ffffff;
+      .textArea {
+        width: 100%;
+        min-height: inherit;
       }
+      .btn__group {
+        width: 80%;
+        min-height: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .account,
+      .balance,
+      .withdraw,
       .deposit {
-        grid-column: 4 / 16;
-        grid-row: 5 / 6;
         background-color: rgb(67, 67, 192);
         color: #ffffff;
       }
       .exit {
-        grid-column: 10 / 13;
-        grid-row: 3 / 4;
         background-color: rgb(243, 40, 40);
         color: #ffffff;
-        justify-self: center;
       }
       .enter {
-        grid-column: 10 / 13;
-        grid-row: 4 / 5;
         background-color: rgb(21, 119, 21);
         color: #ffffff;
-        justify-self: center;
-      }
-      .textArea {
-        width: 100%;
-        min-height: 70%;
       }
       .account,
       .balance,
@@ -92,27 +76,39 @@
       .deposit,
       .exit,
       .enter {
-        width: 100px;
+        width: 200px;
         height: 40px;
-        border-radius: 10px;
+        border-radius: 5px;
         padding: 5px 10px;
         cursor: pointer;
+      }
+      @media only screen and (max-width: 870px) {
+        .btn__group {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        button + button {
+          margin-top: 10px;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>JavaScript Second Assignment - Bank Account</h1>
+    <h1>Bank - ATM</h1>
     <div class="atm__container">
-      <h3 class="output"></h3>
+      <h3 class="output">OUTPUT</h3>
       <form action="" class="form">
         <input type="text" class="textArea" />
       </form>
-      <button class="account">Account Details</button>
-      <button class="balance">Balance</button>
-      <button class="withdraw">Withdrawal</button>
-      <button class="deposit">Deposit</button>
-      <button class="exit">Exit</button>
-      <button class="enter">Enter</button>
+      <div class="btn__group">
+        <button class="account">Account Details</button>
+        <button class="balance">Balance</button>
+        <button class="withdraw">Withdrawal</button>
+        <button class="deposit">Deposit</button>
+        <button class="exit">Exit</button>
+        <button class="enter">Enter</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
