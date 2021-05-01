@@ -96,3 +96,5 @@ alert("your code here and maybe properties");
 // you can use the variable choice for your switch or if/else statement
 // so choice will hold the value of the user input.
 // }
+
+// return window.location.assign('name of html page');
