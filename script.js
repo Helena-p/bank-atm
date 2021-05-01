@@ -3,13 +3,14 @@
 // Seleting elements
 const accountBtn = document.querySelector(".accountBtn");
 const balanceBtn = document.querySelector(".balanceBtn");
-const withdraw = document.querySelector(".withdraw");
-const deposit = document.querySelector(".deposit");
-const exit = document.querySelector(".exit");
-const enter = document.querySelector(".enter");
+const withdrawBtn = document.querySelector(".withdrawBtn");
+const depositBtn = document.querySelector(".depositBtn");
+const exitBtn = document.querySelector(".exitBtn");
+const enterBtn = document.querySelector(".enterBtn");
 const input = document.querySelector(".input");
 const output = document.querySelector(".output");
 
+// Account object with user data
 const account = {
     accountName: "john doe",
     balance: 100,
@@ -43,7 +44,21 @@ const capitalizeAccountName = function (name) {
     return namesUpper.join(" ");
 };
 
-// Get balance
+// Deposit
+depositBtn.addEventListener("click", function () {
+    // 1) get value from input field on enter btn click event
+    // 2) add value to balance
+    // 3) display new balance to user
+    // 4) errorhandling in case of incorrect data
+});
+
+// Withdrawal
+withdrawBtn.addEventListener("click", function () {
+    // 1) get value from input field on enter btn click event
+    // 2) subtract value from balance
+    // 3) display new balance to user
+    // 4) errorhandling in case of incorrect data
+});
 
 function atm() {
     let choice = parseInt();
