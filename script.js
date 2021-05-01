@@ -2,7 +2,7 @@
 
 // Seleting elements
 const accountBtn = document.querySelector(".accountBtn");
-const balance = document.querySelector(".balance");
+const balanceBtn = document.querySelector(".balanceBtn");
 const withdraw = document.querySelector(".withdraw");
 const deposit = document.querySelector(".deposit");
 const exit = document.querySelector(".exit");
@@ -11,43 +11,47 @@ const input = document.querySelector(".input");
 const output = document.querySelector(".output");
 
 const account = {
-  accountName: "john doe",
-  balance: 100,
-  getBalance: function () {},
-  deposit: function () {},
-  withdrawal: function () {},
-  getAccountName: function () {},
-  accountError: function () {},
-  exitAccount: function () {},
+    accountName: "john doe",
+    balance: 100,
+    getBalance: balanceBtn.addEventListener("click", function () {
+        document.querySelector(
+            ".output"
+        ).textContent = `BALANCE: ${account.balance}€`;
+    }),
+    deposit: function () {},
+    withdrawal: function () {},
+    getAccountName: accountBtn.addEventListener("click", function () {
+        document.querySelector(
+            ".output"
+        ).textContent = `ACCOUNT HOLDER: ${capitalizeAccountName(
+            account.accountName
+        )}`;
+    }),
+    accountError: function () {},
+    exitAccount: function () {},
 };
 
-// Capitalize account holder name
+// Capitalize account holder name by dividing name
+// and change first index to uppercase, then rejoin as string
 const capitalizeAccountName = function (name) {
-  const names = name.split(" ");
-  const namesUpper = [];
+    const names = name.split(" ");
+    const namesUpper = [];
 
-  for (const n of names) {
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
-  return namesUpper;
+    for (const letter of names) {
+        namesUpper.push(letter.replace(letter[0], letter[0].toUpperCase()));
+    }
+    return namesUpper.join(" ");
 };
 
-// Get account details and display on page
-const userData = accountBtn.addEventListener("click", function () {
-  document.querySelector(
-    ".output"
-  ).textContent = `Account Holder: ${capitalizeAccountName(
-    account.accountName
-  )}`;
-});
+// Get balance
 
 function atm() {
-  let choice = parseInt();
-  //prompt("Please select a transaction: BALANCE, DEPOSIT or WITHDRAWAL")
-  //prompt user for choice.
+    let choice = parseInt();
+    //prompt("Please select a transaction: BALANCE, DEPOSIT or WITHDRAWAL")
+    //prompt user for choice.
 
-  // you can use the variable choice for your switch or if/else statement
-  // so choice will hold the value of the user input.
+    // you can use the variable choice for your switch or if/else statement
+    // so choice will hold the value of the user input.
 }
 
 // In the deposit and withdrawal function use this code to show the prompt
