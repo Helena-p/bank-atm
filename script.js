@@ -20,13 +20,13 @@ const account = {
         ).textContent = `BALANCE: ${account.balance}€`;
     }),
     deposit: depositBtn.addEventListener("click", () => {
-        // get value from input field on btn click event
+        // Get value from input field on btn click event
         // parseFloat is used to take a string and return a number
-        // if a symbol is entered that it cannot parse, NaN is returned
+        // if a symbol is entered that it can not parse, NaN is returned
         let inputData = parseFloat(document.getElementById("input").value);
-        // errorhandling in case of incorrect data
-        // if/else is used because there is few conditions to be evaluated and
-        // therefor I find an if/else statement to be useful
+        // Errorhandling in case of incorrect data
+        // if/else is used here because there is few conditions to be evaluated and
+        // therefor I find an if/else statement to relevant
         if (isNaN(inputData) || inputData < 0 || inputData === "") {
             document.querySelector(
                 ".output"
@@ -34,27 +34,35 @@ const account = {
         } else {
             // Add value to balance
             account.balance += inputData;
-            // display new balance to user
+            // Display new balance to user
             document.querySelector(
                 ".output"
             ).textContent = `NEW BALANCE: ${account.balance}€`;
+            document.getElementById("input").value = " ";
         }
     }),
     withdrawal: withdrawBtn.addEventListener("click", () => {
-        // get value from input field on btn click event
+        // Get value from input field on btn click event
         let inputData = parseFloat(document.getElementById("input").value);
-        // errorhandling in case of incorrect data
+        // Errorhandling in case of incorrect data
+        // if/else is used here because there is few conditions to be evaluated and
+        // therefor I find an if/else statement to relevant
         if (isNaN(inputData) || inputData === "") {
             document.querySelector(
                 ".output"
             ).textContent = `Please enter a valid number!`;
+        } else if (inputData > account.balance) {
+            document.querySelector(
+                ".output"
+            ).textContent = `Insufficient funds!`;
         } else {
-            // Add value to balance
+            // Subtract value from balance
             account.balance -= inputData;
-            // display new balance to user
+            // Display new balance to user
             document.querySelector(
                 ".output"
             ).textContent = `NEW BALANCE: ${account.balance}€`;
+            document.getElementById("input").value = " ";
         }
     }),
     getAccountName: accountBtn.addEventListener("click", () => {
@@ -64,7 +72,6 @@ const account = {
             account.accountName
         )}`;
     }),
-    accountError: function () {},
     exitAccount: exitBtn.addEventListener("click", () => {
         return window.location.assign("home.html");
     }),
@@ -87,15 +94,11 @@ clearBtn.addEventListener("click", () => {
     document.getElementById("input").value = " ";
 });
 
-// In the deposit and withdrawal function you also need to handle som potential errors.
-// To handle one of the potential error you can use this piece of code
-// isNaN(variableName);
-// you need to change the variableName to your actual variable.
-// you also need to check some other conditions here and use a logical operator.
-// try to say the sentece out loud or think it:
-// "A user should not be able to put 0 or negative numbers or empty string or a type that is not a number"
-// Do you know what operator you should use?
+/* 
 
-// In the accountError and accountExit function you can use this to show a message to the user:
-// alert("your code here and maybe properties");
-// of course you need to put a proper message and you might need to display some of the properties.
+Notes:
+ I decided to place errorhandling in the if/else statements inside the function of deposit and withdraw, since I chose not to set the communication to the user via prompt I found that to be more practible.
+
+ The use of 'this'returned NaN, I tried to find a solution for that, the only thing I could think of is that I have set the document to 'use strict'?... That I recieve NaN is telling me that 'this' does not point to the correct object.  
+
+*/
