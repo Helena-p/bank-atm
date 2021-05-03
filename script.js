@@ -6,22 +6,58 @@ const balanceBtn = document.querySelector(".balanceBtn");
 const withdrawBtn = document.querySelector(".withdrawBtn");
 const depositBtn = document.querySelector(".depositBtn");
 const exitBtn = document.querySelector(".exitBtn");
-const enterBtn = document.querySelector(".enterBtn");
-const input = document.querySelector(".input");
+const clearBtn = document.querySelector(".clearBtn");
+const input = document.getElementById("input");
 const output = document.querySelector(".output");
 
 // Account object with user data
 const account = {
     accountName: "john doe",
     balance: 100,
-    getBalance: balanceBtn.addEventListener("click", function () {
+    getBalance: balanceBtn.addEventListener("click", () => {
         document.querySelector(
             ".output"
         ).textContent = `BALANCE: ${account.balance}€`;
     }),
-    deposit: function () {},
-    withdrawal: function () {},
-    getAccountName: accountBtn.addEventListener("click", function () {
+    deposit: depositBtn.addEventListener("click", () => {
+        // get value from input field on btn click event
+        // parseFloat is used to take a string and return a number
+        // if a symbol is entered that it cannot parse, NaN is returned
+        let inputData = parseFloat(document.getElementById("input").value);
+        // errorhandling in case of incorrect data
+        // if/else is used because there is few conditions to be evaluated and
+        // therefor I find an if/else statement to be useful
+        if (isNaN(inputData) || inputData < 0 || inputData === "") {
+            document.querySelector(
+                ".output"
+            ).textContent = `Please enter a valid number!`;
+        } else {
+            // Add value to balance
+            account.balance += inputData;
+            // display new balance to user
+            document.querySelector(
+                ".output"
+            ).textContent = `NEW BALANCE: ${account.balance}€`;
+        }
+    }),
+    withdrawal: withdrawBtn.addEventListener("click", () => {
+        // get value from input field on btn click event
+        let inputData = parseFloat(document.getElementById("input").value);
+        // errorhandling in case of incorrect data
+        if (isNaN(inputData) || inputData === "") {
+            document.querySelector(
+                ".output"
+            ).textContent = `Please enter a valid number!`;
+        } else {
+            // Add value to balance
+            account.balance -= inputData;
+            // display new balance to user
+            document.querySelector(
+                ".output"
+            ).textContent = `NEW BALANCE: ${account.balance}€`;
+        }
+    }),
+    getAccountName: accountBtn.addEventListener("click", () => {
         document.querySelector(
             ".output"
         ).textContent = `ACCOUNT HOLDER: ${capitalizeAccountName(
@@ -36,7 +72,7 @@ const account = {
 
 // Capitalize account holder name by dividing name
 // and change first index to uppercase, then rejoin as string
-const capitalizeAccountName = function (name) {
+const capitalizeAccountName = (name) => {
     const names = name.split(" ");
     const namesUpper = [];
 
@@ -46,49 +82,10 @@ const capitalizeAccountName = function (name) {
     return namesUpper.join(" ");
 };
 
-// Deposit
-depositBtn.addEventListener("click", function () {
-    // 1) get value from input field on enter btn click event
-    enterBtn.addEventListener("click", function () {
-        let inputData = Number(document.querySelector(".input").value);
-        // 2) errorhandling in case of incorrect data
-        if (isNaN(inputData) || inputData < 0) {
-            document.querySelector(
-                ".output"
-            ).textContent = `Please enter a valid number!`;
-        } else {
-            // 3) Add value to balance
-            inputData += account.balance;
-            // 4) display new balance to user
-            document.querySelector(
-                ".output"
-            ).textContent = `BALANCE: ${account.balance}€`;
-        }
-    });
+// Clear button functionality
+clearBtn.addEventListener("click", () => {
+    document.getElementById("input").value = " ";
 });
-
-// Withdrawal
-withdrawBtn.addEventListener("click", function () {
-    // 1) get value from input field on enter btn click event
-    // 2) subtract value from balance
-    // 3) display new balance to user
-    // 4) errorhandling in case of incorrect data
-});
-
-function atm() {
-    let choice = parseInt();
-    //prompt("Please select a transaction: BALANCE, DEPOSIT or WITHDRAWAL")
-    //prompt user for choice.
-
-    // you can use the variable choice for your switch or if/else statement
-    // so choice will hold the value of the user input.
-}
-
-// In the deposit and withdrawal function use this code to show the prompt
-//parseFloat(prompt("Put some proper message here"));
-// You need to change the message of course. You should also do some research why parseFloat() is used here
-// answer by making a comment in the code.
-// Be aware of that you need to add some code to this so you can display the actual input.
 
 // In the deposit and withdrawal function you also need to handle som potential errors.
 // To handle one of the potential error you can use this piece of code
@@ -102,14 +99,3 @@ function atm() {
 // In the accountError and accountExit function you can use this to show a message to the user:
 // alert("your code here and maybe properties");
 // of course you need to put a proper message and you might need to display some of the properties.
-
-// STARTER FUNCTION
-// function atm() {
-//   let choice = parseInt(prompt("Display menu choices here"));
-//prompt user for choice.
-
-// you can use the variable choice for your switch or if/else statement
-// so choice will hold the value of the user input.
-// }
-
-// return window.location.assign('name of html page');

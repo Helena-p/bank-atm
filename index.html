@@ -90,7 +90,7 @@
                 background-color: rgb(243, 40, 40);
                 color: #ffffff;
             }
-            .enterBtn {
+            .clearBtn {
                 background-color: rgb(21, 119, 21);
                 color: #ffffff;
             }
@@ -99,7 +99,7 @@
             .withdrawBtn,
             .depositBtn,
             .exitBtn,
-            .enterBtn {
+            .clearBtn {
                 width: 200px;
                 height: 40px;
                 border-radius: 5px;
@@ -135,7 +135,7 @@
         <div class="atm__container">
             <h3 class="output">&nbsp;</h3>
             <form action="" class="form">
-                <input type="text" class="input" />
+                <input type="text" id="input" />
             </form>
             <div class="btn__group">
                 <button class="accountBtn">Account Details</button>
@@ -143,7 +143,7 @@
                 <button class="withdrawBtn">Withdrawal</button>
                 <button class="depositBtn">Deposit</button>
                 <button class="exitBtn">Exit</button>
-                <button class="enterBtn">Enter</button>
+                <button class="clearBtn">Clear</button>
             </div>
         </div>
         <script src="script.js"></script>
