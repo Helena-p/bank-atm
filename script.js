@@ -29,7 +29,9 @@ const account = {
         )}`;
     }),
     accountError: function () {},
-    exitAccount: function () {},
+    exitAccount: exitBtn.addEventListener("click", () => {
+        return window.location.assign("home.html");
+    }),
 };
 
 // Capitalize account holder name by dividing name
@@ -47,9 +49,22 @@ const capitalizeAccountName = function (name) {
 // Deposit
 depositBtn.addEventListener("click", function () {
     // 1) get value from input field on enter btn click event
-    // 2) add value to balance
-    // 3) display new balance to user
-    // 4) errorhandling in case of incorrect data
+    enterBtn.addEventListener("click", function () {
+        let inputData = Number(document.querySelector(".input").value);
+        // 2) errorhandling in case of incorrect data
+        if (isNaN(inputData) || inputData < 0) {
+            document.querySelector(
+                ".output"
+            ).textContent = `Please enter a valid number!`;
+        } else {
+            // 3) Add value to balance
+            inputData += account.balance;
+            // 4) display new balance to user
+            document.querySelector(
+                ".output"
+            ).textContent = `BALANCE: ${account.balance}€`;
+        }
+    });
 });
 
 // Withdrawal
@@ -77,7 +92,7 @@ function atm() {
 
 // In the deposit and withdrawal function you also need to handle som potential errors.
 // To handle one of the potential error you can use this piece of code
-isNaN(variableName);
+// isNaN(variableName);
 // you need to change the variableName to your actual variable.
 // you also need to check some other conditions here and use a logical operator.
 // try to say the sentece out loud or think it:
@@ -85,7 +100,7 @@ isNaN(variableName);
 // Do you know what operator you should use?
 
 // In the accountError and accountExit function you can use this to show a message to the user:
-alert("your code here and maybe properties");
+// alert("your code here and maybe properties");
 // of course you need to put a proper message and you might need to display some of the properties.
 
 // STARTER FUNCTION
