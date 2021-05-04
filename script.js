@@ -27,10 +27,15 @@ const account = {
         // Errorhandling in case of incorrect data
         // if/else is used here because there is few conditions to be evaluated and
         // therefor I find an if/else statement to relevant
-        if (isNaN(inputData) || inputData < 0 || inputData === "") {
+        if (
+            isNaN(inputData) ||
+            inputData < 0 ||
+            inputData === "" ||
+            inputData % 10 !== 0
+        ) {
             document.querySelector(
                 ".output"
-            ).textContent = `Please enter a valid number!`;
+            ).textContent = `Please enter a valid amount divisible by 10!`;
         } else {
             // Add value to balance
             account.balance += inputData;
@@ -47,10 +52,10 @@ const account = {
         // Errorhandling in case of incorrect data
         // if/else is used here because there is few conditions to be evaluated and
         // therefor I find an if/else statement to relevant
-        if (isNaN(inputData) || inputData === "") {
+        if (isNaN(inputData) || inputData === "" || inputData % 10 !== 0) {
             document.querySelector(
                 ".output"
-            ).textContent = `Please enter a valid number!`;
+            ).textContent = `Please enter a valid amount divisible by 10!`;
         } else if (inputData > account.balance) {
             document.querySelector(
                 ".output"
@@ -61,7 +66,7 @@ const account = {
             // Display new balance to user
             document.querySelector(
                 ".output"
-            ).textContent = `NEW BALANCE: ${account.balance}€`;
+            ).textContent = `NEW BALANCE: €${account.balance}`;
             document.getElementById("input").value = " ";
         }
     }),
