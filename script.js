@@ -94,7 +94,8 @@ const capitalizeAccountName = (name) => {
     return namesUpper.join(" ");
 };
 
-// Clear button functionality
+// Clear button functionality,
+// clears the input field if user mistype data
 clearBtn.addEventListener("click", () => {
     document.getElementById("input").value = " ";
 });
@@ -104,6 +105,7 @@ clearBtn.addEventListener("click", () => {
 Notes:
  I decided to place errorhandling in the if/else statements inside the function of deposit and withdraw, since I chose not to set the communication to the user via prompt I found that to be more practible.
 
- The use of 'this'returned NaN, I tried to find a solution for that, the only thing I could think of is that I have set the document to 'use strict'?... That I recieve NaN is telling me that 'this' does not point to the correct object.  
+ The use of 'this'returned NaN, I tried to find a solution for that, the only thing I could find is that 'this' inside an eventListener event would point to the element that the function listens to. When an arrow function is used, then the 'this' keyword would point to the window object// Stack overflow
+ // https://stackoverflow.com/questions/52016966/this-keyword-inside-addeventlistener-callback
 
 */
