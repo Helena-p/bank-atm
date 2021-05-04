@@ -17,7 +17,7 @@ const account = {
     getBalance: balanceBtn.addEventListener("click", () => {
         document.querySelector(
             ".output"
-        ).textContent = `BALANCE: ${account.balance}€`;
+        ).textContent = `BALANCE: €${account.balance}`;
     }),
     deposit: depositBtn.addEventListener("click", () => {
         // Get value from input field on btn click event
@@ -42,7 +42,7 @@ const account = {
             // Display new balance to user
             document.querySelector(
                 ".output"
-            ).textContent = `NEW BALANCE: ${account.balance}€`;
+            ).textContent = `NEW BALANCE: €${account.balance}`;
             document.getElementById("input").value = " ";
         }
     }),
