@@ -7,8 +7,6 @@ const withdrawBtn = document.querySelector(".withdrawBtn");
 const depositBtn = document.querySelector(".depositBtn");
 const exitBtn = document.querySelector(".exitBtn");
 const clearBtn = document.querySelector(".clearBtn");
-const input = document.getElementById("input");
-const output = document.querySelector(".output");
 
 // Account object with user data
 const account = {
